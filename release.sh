@@ -1,4 +1,6 @@
-#!/bin/sh
+#! /usr/bin/env zsh
+
+set -o xtrace
 
 # Check arguments
 if [ $# -eq 1 ]; then
