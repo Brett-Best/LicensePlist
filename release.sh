@@ -33,13 +33,13 @@ git push origin HEAD
 git tag $tag
 git push origin $tag
 
-curl -LOk "https://github.com/mono0926/LicensePlist/archive/${filename}"
+curl -LOk "https://github.com/Brett-Best/LicensePlist/archive/${filename}"
 sha256=$(shasum -a 256 $filename | cut -d ' ' -f 1)
 rm $filename
 
 # Homebrew
 formula_path="$lib_name.rb"
-formula_url="https://api.github.com/repos/mono0926/homebrew-$lib_name/contents/$formula_path"
+formula_url="https://api.github.com/repos/Brett-Best/homebrew-$lib_name/contents/$formula_path"
 sha=`curl GET $formula_url \
 	| jq -r '.sha'`
 echo "sha: \n$sha"
@@ -61,12 +61,12 @@ curl -i -X PUT $formula_url \
 
 # GitHub Release
 github-release release \
-    --user mono0926 \
+    --user Brett-Best \
     --repo LicensePlist \
     --tag $tag
 
 github-release upload \
-    --user mono0926 \
+    --user Brett-Best \
     --repo LicensePlist \
     --tag $tag \
     --name "$lib_name.zip" \
@@ -76,7 +76,7 @@ rm $lib_name.zip
 
 # Upload artifact bundle
 github-release upload \
-    --user mono0926 \
+    --user Brett-Best \
     --repo LicensePlist \
     --tag $tag \
     --name $binary_artifact \
@@ -88,7 +88,7 @@ rm $binary_artifact
 make portable_zip
 portable_zip_name="portable_licenseplist.zip"
 github-release upload \
-    --user mono0926 \
+    --user Brett-Best \
     --repo LicensePlist \
     --tag $tag \
     --name "$portable_zip_name" \
