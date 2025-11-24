@@ -8,24 +8,34 @@ let package = Package(
         .executable(name: "license-plist", targets: ["LicensePlist"]),
         .library(name: "LicensePlistCore", targets: ["LicensePlistCore"]),
         .plugin(name: "LicensePlistBuildTool", targets: ["LicensePlistBuildTool"]),
-        .plugin(name: "GenerateAcknowledgementsCommand", targets: ["GenerateAcknowledgementsCommand"]),
-        .plugin(name: "AddAcknowledgementsCopyScriptCommand", targets: ["AddAcknowledgementsCopyScriptCommand"]),
+        .plugin(
+            name: "GenerateAcknowledgementsCommand", targets: ["GenerateAcknowledgementsCommand"]),
+        .plugin(
+            name: "AddAcknowledgementsCopyScriptCommand",
+            targets: ["AddAcknowledgementsCopyScriptCommand"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser.git",
-                 from: "1.1.4"),
-        .package(url: "https://github.com/ishkawa/APIKit.git",
-                 from: "5.3.0"),
-        .package(url: "https://github.com/Kitura/HeliumLogger.git",
-                 from: "2.0.0"),
-        .package(url: "https://github.com/Kitura/swift-html-entities.git",
-                 from: "4.0.1"),
-        .package(url: "https://github.com/YusukeHosonuma/SwiftParamTest",
-                 .upToNextMajor(from: "2.0.0")),
-        .package(url: "https://github.com/tomlokhorst/XcodeEdit.git",
-                 from: "2.9.0"),
-        .package(url: "https://github.com/jpsim/Yams.git",
-                 from: "5.0.5")
+        .package(
+            url: "https://github.com/apple/swift-argument-parser.git",
+            from: "1.1.4"),
+        .package(
+            url: "https://github.com/ishkawa/APIKit.git",
+            from: "5.3.0"),
+        .package(
+            url: "https://github.com/Kitura/HeliumLogger.git",
+            from: "2.0.0"),
+        .package(
+            url: "https://github.com/Kitura/swift-html-entities.git",
+            from: "4.0.1"),
+        .package(
+            url: "https://github.com/YusukeHosonuma/SwiftParamTest",
+            .upToNextMajor(from: "2.0.0")),
+        .package(
+            url: "https://github.com/tomlokhorst/XcodeEdit.git",
+            from: "2.9.0"),
+        .package(
+            url: "https://github.com/jpsim/Yams.git",
+            from: "5.0.5"),
     ],
     targets: [
         .executableTarget(
@@ -34,7 +44,7 @@ let package = Package(
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 "LicensePlistCore",
                 "HeliumLogger",
-                "XcodeEdit"
+                "XcodeEdit",
             ]
         ),
         .target(
@@ -43,7 +53,7 @@ let package = Package(
                 "APIKit",
                 "HeliumLogger",
                 .product(name: "HTMLEntities", package: "swift-html-entities"),
-                .product(name: "Yams", package: "Yams")
+                .product(name: "Yams", package: "Yams"),
             ]
         ),
         .testTarget(
@@ -67,7 +77,9 @@ let package = Package(
                     description: "LicensePlist generates acknowledgements"
                 ),
                 permissions: [
-                    .writeToPackageDirectory(reason: "LicensePlist generates acknowledgements inside the project directory")
+                    .writeToPackageDirectory(
+                        reason:
+                            "LicensePlist generates acknowledgements inside the project directory")
                 ]
             ),
             dependencies: ["LicensePlistBinary"]
@@ -87,8 +99,9 @@ let package = Package(
         ),
         .binaryTarget(
             name: "LicensePlistBinary",
+            url:
             url: "https://github.com/Brett-Best/LicensePlist/releases/download/3.27.2/LicensePlistBinary-macos.artifactbundle.zip",
             checksum: ""
-        )
+        ),
     ]
 )
