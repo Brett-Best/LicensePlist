@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "LicensePlist",
+    platforms: [.macOS(.v15)],
     products: [
         .executable(name: "license-plist", targets: ["LicensePlist"]),
         .library(name: "LicensePlistCore", targets: ["LicensePlistCore"]),
@@ -99,8 +100,8 @@ let package = Package(
         ),
         .binaryTarget(
             name: "LicensePlistBinary",
-            url: "https://github.com/Brett-Best/LicensePlist/releases/download/3.27.3/LicensePlistBinary-macos.artifactbundle.zip",
-            checksum: ""
+            url: "https://github.com/Brett-Best/LicensePlist/releases/download/3.27.4/LicensePlistBinary-macos.artifactbundle.zip",
+            checksum: "eee222fe38ce2418586f003adfb8ec3ff954b7efc3773e88f607324e8e3237b4"
         ),
     ]
 )
